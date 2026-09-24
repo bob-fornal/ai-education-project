@@ -1,0 +1,45 @@
+# Cryptography
+
+**Backbone Course #16** · **Duration:** 50 minutes
+
+## The One-Sentence Pitch
+Two mathematical tricks — one exploiting how much easier it is to multiply large numbers than to un-multiply them, the other turning any input into a unique-looking fingerprint — quietly secure nearly every private conversation and verified transaction on the internet.
+
+## Audience & Prerequisites
+This talk is for learners comfortable with basic math (multiplication, modular arithmetic at an intuitive level) and basic programming; no prior cryptography experience is assumed.
+
+## 50-Minute Outline
+
+| Time | Segment |
+|---|---|
+| 0:00–0:05 | Hook: the padlock problem |
+| 0:05–0:13 | Symmetric vs. asymmetric encryption |
+| 0:13–0:26 | RSA: public-key encryption in depth |
+| 0:26–0:39 | Cryptographic hash functions and SHA-256 |
+| 0:39–0:47 | Tying it together: digital signatures |
+| 0:47–0:50 | Key takeaway and close |
+
+### Hook: the padlock problem
+Open with a puzzle: you want to mail a locked box to someone you've never met, so that only they can open it — but you can't meet in person to hand them the key, and anything you mail alongside the box could be intercepted and copied. This is exactly the problem two strangers face when they want to communicate securely over the open internet — a network with no built-in privacy, where anyone in the middle could be listening. The entire practice of cryptography exists to solve versions of this puzzle, and today's talk covers the two ideas that solve it in practice: a clever kind of "padlock" that anyone can lock but only one person can unlock (RSA), and a way to create a tamper-evident fingerprint of any message (SHA-256 and hashing).
+
+### Symmetric vs. asymmetric encryption
+Symmetric encryption uses one shared secret key to both lock (encrypt) and unlock (decrypt) data — fast and efficient, but it has an obvious chicken-and-egg problem: how do two people who've never met agree on a shared secret without an eavesdropper on the network seeing it too? Asymmetric encryption solves exactly that problem by using two mathematically related keys instead of one: a public key that anyone can know and use to encrypt a message, and a private key, known only to its owner, that's needed to decrypt it — you can publish your public key to the entire world, and strangers can use it to send you something only you can read. In practice, real systems use both together: asymmetric encryption solves the hard problem of safely establishing a shared secret over an untrusted network, and then the two parties switch to fast symmetric encryption for the actual bulk of the conversation — this hybrid approach is exactly what happens every time you connect to a website over HTTPS.
+
+### RSA: public-key encryption in depth
+RSA is the canonical algorithm behind asymmetric encryption, and its security rests on a beautifully simple asymmetry: multiplying two large prime numbers together is fast and easy, even for enormous numbers, but factoring the resulting product back into its two original primes is, with current computers and numbers large enough, prohibitively slow — potentially longer than the age of the universe for sufficiently large keys. To build a keypair, you pick two large random prime numbers and multiply them to get a number N; your public key is built from N and a chosen exponent, while your private key depends on the two original primes — the primes themselves are then discarded from public view, kept secret, and this secrecy is exactly what makes the private key private. Encryption and decryption in RSA are just modular exponentiation (raising a number to a power and taking the remainder after dividing by N) — one exponent, tied to the public key, scrambles the message, and only the other exponent, mathematically derived from the same secret primes, can properly unscramble it, and the “trapdoor” property is that anyone can compute the scrambling direction, but only someone who knows the original primes can feasibly compute the unscrambling direction. This is not a toy idea — RSA (or public-key algorithms built on the same underlying principle) is literally what secures HTTPS/TLS connections when you see the padlock in your browser, what protects online banking sessions, and what underlies digital signatures, because the same "easy one way, hard the other way" trick that makes multiplying-vs-factoring asymmetric is the entire reason a public key can be shared openly while its matching private key stays safe (for more on the algorithm's mechanics, see: https://securew2.com/blog/what-is-rsa-asymmetric-encryption).
+
+### Cryptographic hash functions and SHA-256
+A hash function takes an input of any size — a single word or an entire movie file — and produces a fixed-size output, called a hash or digest, that acts like a fingerprint of that input. What makes a hash function *cryptographic*, rather than just a fast lookup trick, is three specific properties: it's one-way (given the output, you cannot feasibly reconstruct the original input — there's no "un-hashing"); it's collision-resistant (it should be computationally infeasible to find two different inputs that produce the same output); and it exhibits the avalanche effect (changing even a single character of the input produces a wildly, unpredictably different output, with no visible pattern connecting the two). SHA-256 is the most widely deployed cryptographic hash function meeting these properties today, always producing a 256-bit output no matter the input's size, and its specific properties are why it underlies three very different real-world systems: password storage (a server stores the hash of your password, never the password itself, so a stolen database doesn't hand over actual passwords — and because hashing is one-way, an attacker can't reverse it back to the original); blockchain integrity (each block's hash depends on its contents and the previous block's hash, so changing any historical transaction would cascade and change every hash after it, making tampering immediately detectable); and general data-integrity checks (comparing a file's hash before and after a transfer instantly reveals whether even one bit was corrupted or altered, without needing to compare the entire file byte by byte).
+
+### Tying it together: digital signatures
+A digital signature answers a question neither RSA nor hashing alone fully solves: how do you prove that a specific message really came from a specific person and hasn't been altered since? The construction combines both tools directly: first, hash the message with SHA-256 to get a short, unique fingerprint of its exact contents; then encrypt that hash — not the whole message, just the small fingerprint — using your RSA *private* key, producing the signature. Anyone can verify it using your matching *public* key: they decrypt the signature to recover the hash you originally computed, independently hash the message themselves, and check that the two match — if they do, the message provably came from someone possessing your private key and provably has not been altered, since changing even one character would have produced a completely different hash. This is the reverse direction from RSA encryption described earlier (there, the public key encrypts and the private key decrypts; here, the private key "encrypts" the hash to create the signature, and the public key decrypts it to verify) — the same mathematical trapdoor, deliberately used in the opposite direction to prove authorship instead of protecting secrecy.
+
+### Key takeaway and close
+Close by returning to the padlock puzzle from the opening: RSA is the padlock anyone can click shut but only one key can open, solving the "how do strangers communicate privately" problem, while SHA-256 is the tamper-evident seal that reveals if anything was touched, and digital signatures show what happens when you use RSA's trapdoor property in the opposite direction — proving identity and integrity instead of just secrecy. Every time your browser shows a padlock icon, every password database breach that doesn't leak actual passwords, and every blockchain's claim of tamper-evidence all trace back to these same two ideas.
+
+## Key Takeaway
+RSA's security comes from the gap between easy multiplication and hard factoring, and SHA-256's security comes from being one-way and collision-resistant — and combining the two (hash, then sign the hash with a private key) is literally what a digital signature is, underpinning HTTPS, password storage, and blockchain integrity alike.
+
+## Go Deeper
+- [Amherst](../curriculum/amherst-cs-curriculum-talks-checklist.md) · [Purdue](../curriculum/purdue-cs-curriculum-talks-checklist.md) · [MIT](../curriculum/mit-ocw-cs-curriculum-talks-checklist.md) · [Stanford](../curriculum/stanford-cs-curriculum-talks-checklist.md) · [CMU](../curriculum/cmu-cs-curriculum-talks-checklist.md)
+- MIT OCW: [6.875 — Cryptography and Cryptanalysis](https://ocw.mit.edu/courses/6-875-cryptography-and-cryptanalysis-spring-2005/pages/syllabus/)
