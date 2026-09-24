@@ -14,13 +14,13 @@ Take Mid-level developers who are already productive, often very productive with
 
 ## Why computer science, and why Seniors
 
-The [CS in AI curriculum](../docs/cs-in-ai-curriculum.md) ranks subjects by one question: does weakness here become *dangerous* when AI writes the code? The Critical subjects (algorithms, data structures, systems, databases, security, software engineering, and how AI itself works) are exactly the ones AI can't cover for you. It produces confident answers in those areas that take real knowledge to check.
+The [CS in AI curriculum](../_DOCS/cs-in-ai-curriculum.md) ranks subjects by one question: does weakness here become *dangerous* when AI writes the code? The Critical subjects (algorithms, data structures, systems, databases, security, software engineering, and how AI itself works) are exactly the ones AI can't cover for you. It produces confident answers in those areas that take real knowledge to check.
 
 Seniors are the right mentors because they've usually learned these subjects the hard way, through production incidents and design mistakes. They can connect a textbook concept to "remember when checkout fell over." That connection is what makes theory stick.
 
 ## Structure
 
-The track runs as four quarters, each pairing CS in AI talks with Software Design & Architecture topics. The sequence below matches the Mid-level path in [learning paths](../docs/learning-paths.md).
+The track runs as four quarters, each pairing CS in AI talks with Software Design & Architecture topics. The sequence below matches the Mid-level path in [learning paths](../_DOCS/learning-paths.md).
 
 ### Q1: Foundations of reasoning
 

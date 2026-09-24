@@ -27,12 +27,12 @@ Pick the entry point that matches why you're here.
 
 ## Documentation
 
-Guides to the curricula live in [`docs/`](docs/README.md). The Scientific Method and Mentoring have their own top-level folders.
+Guides to the curricula live in [`_DOCS/`](_DOCS/README.md). The Scientific Method and Mentoring have their own top-level folders.
 
-- [Repository structure](docs/repository-structure.md): every folder and file type, and the conventions they follow
-- [CS in AI curriculum guide](docs/cs-in-ai-curriculum.md): how the 32 talks and seven school checklists fit together
-- [Software Design & Architecture guide](docs/software-design-and-architecture.md): the 8 parts, the file layout per topic, and the capstone
-- [Learning paths](docs/learning-paths.md): suggested sequences through both curricula by role and level
+- [Repository structure](_DOCS/repository-structure.md): every folder and file type, and the conventions they follow
+- [CS in AI curriculum guide](_DOCS/cs-in-ai-curriculum.md): how the 32 talks and seven school checklists fit together
+- [Software Design & Architecture guide](_DOCS/software-design-and-architecture.md): the 8 parts, the file layout per topic, and the capstone
+- [Learning paths](_DOCS/learning-paths.md): suggested sequences through both curricula by role and level
 - [Scientific Method](scientific-method/README.md): the method, the experiment log, and eight domain playbooks
 - [Mentoring](mentoring/README.md): the tiered model, both tracks, and how to run it
 

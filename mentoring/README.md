@@ -10,7 +10,7 @@ That model is wearing out, for three reasons.
 
 1. **AI now answers a lot of the "map" questions.** A Junior can ask an AI assistant to explain a module, trace a request, or find where a setting is read. It's not always right, but it's there at 2 a.m. and it never gets impatient. Spending a Senior's scarce hours on codebase orientation doesn't pay off the way it used to.
 2. **Juniors need a different skill now.** The hard part for a Junior isn't finding the code anymore. It's using AI as a developer without being fooled by it: specifying work clearly, reading generated code critically, testing it, and knowing when to stop trusting it. The people best placed to teach that are the ones doing it every day in the current codebases, and that's usually the Mid-levels.
-3. **Mid-levels are at risk of plateauing.** A Mid-level who's fluent with AI tools can ship a lot. Without deeper computer science and design knowledge, they become an "AI operator" who can't tell when confident output is wrong. The [priority test](../docs/cs-in-ai-curriculum.md#the-priority-test) in the CS in AI curriculum names this exactly: weakness in fundamentals becomes *dangerous* when AI is doing the typing. Seniors are the right people to close that gap.
+3. **Mid-levels are at risk of plateauing.** A Mid-level who's fluent with AI tools can ship a lot. Without deeper computer science and design knowledge, they become an "AI operator" who can't tell when confident output is wrong. The [priority test](../_DOCS/cs-in-ai-curriculum.md#the-priority-test) in the CS in AI curriculum names this exactly: weakness in fundamentals becomes *dangerous* when AI is doing the typing. Seniors are the right people to close that gap.
 
 ## The tiered model
 

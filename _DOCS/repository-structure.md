@@ -5,7 +5,7 @@
 ```text
 ai-education-project/
 ├── README.md                          # Project entry point
-├── docs/                              # Curriculum guides + learning paths (this folder)
+├── _DOCS/                             # Curriculum guides + learning paths (this folder)
 ├── scientific-method/                 # Diagnostic method, experiment log, 8 domain playbooks
 ├── mentoring/                         # Tiered mentoring model: both tracks + operations
 │

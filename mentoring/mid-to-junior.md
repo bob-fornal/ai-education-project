@@ -131,7 +131,7 @@ Timing is a guide. Move on when the exit signal is clear, not when the calendar 
 
 ## Supporting reading for Juniors
 
-Alongside this track, Juniors work through the Junior path in [learning paths](../docs/learning-paths.md). The core of it is the Critical talks most relevant to daily work: [CS01](../computer-science-in-ai-curriculum/talks/01-introduction-to-programming.md), [CS02](../computer-science-in-ai-curriculum/talks/02-data-structures.md), [CS14](../computer-science-in-ai-curriculum/talks/14-software-engineering.md), [CS15](../computer-science-in-ai-curriculum/talks/15-computer-and-network-security.md), [CS11](../computer-science-in-ai-curriculum/talks/11-database-systems.md), and Part 1 of the [Software Design & Architecture curriculum](../computer-science-software-design-and-architecture/README.md#part-1--foundations-of-code-quality).
+Alongside this track, Juniors work through the Junior path in [learning paths](../_DOCS/learning-paths.md). The core of it is the Critical talks most relevant to daily work: [CS01](../computer-science-in-ai-curriculum/talks/01-introduction-to-programming.md), [CS02](../computer-science-in-ai-curriculum/talks/02-data-structures.md), [CS14](../computer-science-in-ai-curriculum/talks/14-software-engineering.md), [CS15](../computer-science-in-ai-curriculum/talks/15-computer-and-network-security.md), [CS11](../computer-science-in-ai-curriculum/talks/11-database-systems.md), and Part 1 of the [Software Design & Architecture curriculum](../computer-science-software-design-and-architecture/README.md#part-1--foundations-of-code-quality).
 
 ## What Mid-level mentors should avoid
 
